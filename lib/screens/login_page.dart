@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_practise/CustomtextField/customButtonField.dart';
 import 'package:my_practise/CustomtextField/customTextField.dart';
-import 'package:my_practise/screens/homePage.dart';
 import 'package:my_practise/screens/register%20page.dart';
+import 'package:my_practise/screens/usser_profile.dart';
 import 'package:my_practise/utils/CustomColor.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -75,24 +75,27 @@ class _LoginPageState extends State<LoginPage> {
                 widght: 300,
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Center(
-                    child: Text(
-                  "Don't have an account? ",
-                  style: TextStyle(fontSize: 15),
-                )),
-                InkWell(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => SignUp()));
-                    },
-                    child: Text(
-                      "SignUp! ",
-                      style: TextStyle(fontSize: 15, color: AllColor.appColor),
-                    )),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                      child: Text(
+                    "Don't have an account? ",
+                    style: TextStyle(fontSize: 15),
+                  )),
+                  InkWell(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => SignUp()));
+                      },
+                      child: Text(
+                        "SignUp! ",
+                        style: TextStyle(fontSize: 15, color: AllColor.appColor),
+                      )),
+                ],
+              ),
             )
           ],
         ),
@@ -111,7 +114,7 @@ void signIn(String email,String pass, context) async {
             {
             Fluttertoast.showToast(msg: "Login Successful"),
         Navigator.push(context,
-        MaterialPageRoute(builder: (context) => HomePage())),
+        MaterialPageRoute(builder: (context) => UserProfile())),
   }
   ).catchError((e){
       Fluttertoast.showToast(msg: e.message);
